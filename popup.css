@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  font-size: 13px;
+}
+
+/* ── Header ─────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 12px 16px;
+  border-bottom: 2px solid #0f3460;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shield { font-size: 22px; }
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.version {
+  font-size: 10px;
+  color: #555;
+  background: #1e1e2e;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+/* ── URL Box ─────────────────────────────── */
+.url-box {
+  background: #12121f;
+  padding: 8px 14px;
+  border-bottom: 1px solid #1e1e3a;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.url-label {
+  color: #555;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.url-text {
+  color: #00d4ff;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 270px;
+}
+
+/* ── Risk Card ─────────────────────────────── */
+.risk-card {
+  margin: 14px 14px 10px;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  background: #1a1a2e;
+  border: 2px solid #2a2a4a;
+  transition: all 0.3s ease;
+}
+
+.risk-card.safe {
+  background: linear-gradient(135deg, #0d2b1f, #0a3d2b);
+  border-color: #00c853;
+}
+
+.risk-card.suspicious {
+  background: linear-gradient(135deg, #2b1f00, #3d2b00);
+  border-color: #ff9800;
+}
+
+.risk-card.dangerous {
+  background: linear-gradient(135deg, #2b0000, #3d0000);
+  border-color: #f44336;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(244, 67, 54, 0); }
+}
+
+.risk-icon { font-size: 36px; margin-bottom: 6px; }
+
+.risk-label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+}
+
+.risk-score {
+  font-size: 32px;
+  font-weight: 900;
+  margin: 4px 0;
+}
+
+.safe .risk-score { color: #00c853; }
+.suspicious .risk-score { color: #ff9800; }
+.dangerous .risk-score { color: #f44336; }
+
+.risk-desc {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ── Detail Rows ─────────────────────────────── */
+.details-section {
+  margin: 0 14px 10px;
+  background: #12121f;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1e1e3a;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid #1a1a2e;
+  transition: background 0.2s;
+}
+
+.detail-row:last-child { border-bottom: none; }
+.detail-row:hover { background: #1a1a2e; }
+
+.detail-icon { font-size: 15px; width: 20px; text-align: center; }
+
+.detail-name {
+  flex: 1;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.detail-val {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  background: #1e1e2e;
+  color: #888;
+}
+
+.detail-val.pass { background: #0d2b1f; color: #00c853; }
+.detail-val.fail { background: #2b0000; color: #f44336; }
+.detail-val.warn { background: #2b1f00; color: #ff9800; }
+
+/* ── API Section ─────────────────────────────── */
+.api-section {
+  margin: 0 14px 10px;
+  border: 1px solid #1e1e3a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.api-header {
+  padding: 10px 14px;
+  cursor: pointer;
+  background: #12121f;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.api-header:hover { background: #1a1a2e; }
+
+.api-not-set {
+  margin-left: auto;
+  font-size: 10px;
+  color: #f44336;
+  background: #2b0000;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.api-is-set {
+  margin-left: auto;
+  font-size: 10px;
+  color: #00c853;
+  background: #0d2b1f;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.api-body {
+  padding: 10px 14px;
+  background: #0f0f1a;
+  border-top: 1px solid #1e1e3a;
+}
+
+.api-body input {
+  width: 100%;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  color: #e0e0e0;
+  padding: 7px 10px;
+  font-size: 11px;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+.api-body input:focus { border-color: #00d4ff; }
+
+.api-body button {
+  background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.api-body button:hover { opacity: 0.9; }
+
+.api-hint {
+  font-size: 10px;
+  color: #555;
+  text-align: center;
+}
+
+/* ── Rescan Button ─────────────────────────────── */
+.rescan-btn {
+  display: block;
+  width: calc(100% - 28px);
+  margin: 0 14px 10px;
+  padding: 9px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.rescan-btn:hover {
+  background: #16213e;
+  color: #00d4ff;
+  border-color: #00d4ff;
+}
+
+/* ── Footer ─────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 8px;
+  font-size: 10px;
+  color: #333;
+  border-top: 1px solid #1a1a2e;
+}

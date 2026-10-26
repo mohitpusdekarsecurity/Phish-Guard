@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PhishGuard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <span class="shield">🛡️</span>
+      <span class="brand">PhishGuard</span>
+    </div>
+    <span class="version">v1.0</span>
+  </div>
+
+  <!-- Current URL display -->
+  <div class="url-box">
+    <span class="url-label">Scanning:</span>
+    <span class="url-text" id="currentUrl">Loading...</span>
+  </div>
+
+  <!-- Risk Score Card -->
+  <div class="risk-card" id="riskCard">
+    <div class="risk-icon" id="riskIcon">⏳</div>
+    <div class="risk-label" id="riskLabel">Analysing...</div>
+    <div class="risk-score" id="riskScore">--</div>
+    <div class="risk-desc" id="riskDesc">Please wait while we check this URL</div>
+  </div>
+
+  <!-- Threat Details -->
+  <div class="details-section">
+    <div class="detail-row" id="vtRow">
+      <span class="detail-icon">🔍</span>
+      <span class="detail-name">VirusTotal</span>
+      <span class="detail-val" id="vtResult">Checking...</span>
+    </div>
+    <div class="detail-row" id="lookaRow">
+      <span class="detail-icon">🎭</span>
+      <span class="detail-name">Lookalike Domain</span>
+      <span class="detail-val" id="lookaResult">Checking...</span>
+    </div>
+    <div class="detail-row" id="sslRow">
+      <span class="detail-icon">🔒</span>
+      <span class="detail-name">HTTPS / SSL</span>
+      <span class="detail-val" id="sslResult">Checking...</span>
+    </div>
+    <div class="detail-row" id="suspRow">
+      <span class="detail-icon">⚠️</span>
+      <span class="detail-name">Suspicious Keywords</span>
+      <span class="detail-val" id="suspResult">Checking...</span>
+    </div>
+    <div class="detail-row" id="ipRow">
+      <span class="detail-icon">🌐</span>
+      <span class="detail-name">IP as URL</span>
+      <span class="detail-val" id="ipResult">Checking...</span>
+    </div>
+  </div>
+
+  <!-- API Key Setup -->
+  <div class="api-section">
+    <div class="api-header" id="apiToggle">
+      ⚙️ VirusTotal API Key <span id="apiStatus" class="api-not-set">Not Set</span>
+    </div>
+    <div class="api-body" id="apiBody" style="display:none;">
+      <input type="text" id="apiKeyInput" placeholder="Paste your VirusTotal API key here..." />
+      <button id="saveApiKey">Save Key</button>
+      <div class="api-hint">
+        Free API key at <strong>virustotal.com</strong> → Sign up → Profile → API Key
+      </div>
+    </div>
+  </div>
+
+  <!-- Rescan button -->
+  <button class="rescan-btn" id="rescanBtn">🔄 Re-scan This Page</button>
+
+  <!-- Footer -->
+  <div class="footer">Built for cybersecurity awareness 🔐</div>
+
+  <script src="src/detector.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
